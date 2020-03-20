@@ -5,7 +5,7 @@
 user=`whoami`
 option=$1
 
-install() {
+pkginstall() {
 	yum -y install libcurl
 	yum -y install openssl
 	yum -y install mariadb
@@ -13,9 +13,17 @@ install() {
 	yum -y install mariadb-libs
 	yum -y install python2
 	yum -y install python-devel
+}
+
+pymodules() {
 	/bin/python get-pip.py
 	/bin/pip install pycurl
 	/bin/pip install MySQL-python
+}
+
+install() {
+	pkginstall
+	pymodules
 }
 
 if [ "$user" = "root" ] && [ "$option" != "" ]; then

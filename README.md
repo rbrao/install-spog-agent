@@ -6,7 +6,7 @@
 2. `cd /tmp/location`   (Replace /tmp/location to actual temporary location)
 3. `./install-spog-agent.sh install | uninstall | reinstall | update`  (Run `chmod a+x *.sh` if unable to execute)
 	- reinstall will uninstall and perform a fresh install
-	- update will refresh files under bin and sbin
+	- update will refresh script files installation directory
 
 ### Current changelist
 * Python2.7 validation/installation 

@@ -102,9 +102,9 @@ if __name__ == "__main__":
     lines=[] 
     tstamp_gmt= int(time.time())
     date_gmt=datetime.utcfromtimestamp(time.time()).strftime("%Y-%m-%d %H:%M:%S")
-    SPGMYDB="dbname"
-    SPGMYUSR="dbuser"
-    SPGMYKEY="dbpass"
+    SPGMYDB="web_metrics"
+    SPGMYUSR="myuser"
+    SPGMYKEY="myuser@123!"
     SPGMYHOST="localhost"
     agent="localhost"
     dbconn = MySQLdb.connect(SPGMYHOST,SPGMYUSR,SPGMYKEY,SPGMYDB )

@@ -10,10 +10,10 @@ import logging.handlers
 import sys
 #import psycopg2
 ## DB CONFIG ##
-SPGMYDB="dbname"
-SPGMYUSR="dbuser"
-SPGMYKEY="dbpass"
-SPGMYHOST="localhost"
+SPGMYDB="web_metrics"
+SPGMYUSR="myuser"
+SPGMYKEY="myuser@123!"
+SPGMYHOST="35.222.85.241"#"kpad.spogworks.com"
 ## - ##
 
 ## PRTG CONFIG

@@ -13,7 +13,7 @@ import sys
 SPGMYDB="web_metrics"
 SPGMYUSR="myuser"
 SPGMYKEY="myuser@123!"
-SPGMYHOST="35.222.85.241"#"kpad.spogworks.com"
+SPGMYHOST="35.222.85.241"
 ## - ##
 
 ## PRTG CONFIG

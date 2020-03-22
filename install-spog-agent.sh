@@ -68,15 +68,15 @@ remove() {
 cronentry() {
 	echo "*/5 * * * * /bin/python /spgwd/scripts/spg_webstats.py url1 url2"
 	read -p "*** Copy/Paste the above line into crontab. Edit url1 url2 to appropriate values. Press any key to continue [Ctrl+C to abort] " dummy
-	crontab -l
+	crontab -e
+        echo "*** End of Installation ***"
 }
 
 test() {
-	remove
-	installdir
 	userinputs
 	readinputs
-	unpack
+	rpm -qa |egrep 'libcurl|openssl|mariadb|python2|python-devel'
+	pip list|egrep 'pycurl|MySQL-python'
 }
 
 install() {

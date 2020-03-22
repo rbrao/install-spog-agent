@@ -45,11 +45,20 @@ readinputs() {
 unpack() {
 	cp ./spg_webstats.py /spgwd/scripts/
 	cp ./spg_prtg.py /spgwd/scripts/
-	sed -i "s/SPGMYDB=\"[a-z,0-9,_,-,@,!]*\"/SPGMYDB=$DBNAME/g" /spgwd/scripts/spg_webstats.py
-	sed -i "s/SPGMYUSR=\"[a-z,0-9,_,-,@,!]*\"/SPGMYUSR=$DBUSER/g" /spgwd/scripts/spg_webstats.py
-	sed -i "s/SPGMYKEY=\"[a-z,0-9,_,-,@,!]*\"/SPGMYKEY=$DBPASS/g" /spgwd/scripts/spg_webstats.py
-	sed -i "s/SPGMYHOST=\"[a-z,0-9,_,-,@,!]*\"/SPGMYHOST=$DBHOST/g" /spgwd/scripts/spg_webstats.py
-	sed -i "s/agent=\"[a-z,0-9,_,-,@,!]*\"/agent=$AGENT/g" /spgwd/scripts/spg_webstats.py
+	## update webstats script ##
+	sed -i "s/SPGMYDB=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/SPGMYDB=$DBNAME/g" /spgwd/scripts/spg_webstats.py
+	sed -i "s/SPGMYUSR=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/SPGMYUSR=$DBUSER/g" /spgwd/scripts/spg_webstats.py
+	sed -i "s/SPGMYKEY=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/SPGMYKEY=$DBPASS/g" /spgwd/scripts/spg_webstats.py
+	sed -i "s/SPGMYHOST=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/SPGMYHOST=$DBHOST/g" /spgwd/scripts/spg_webstats.py
+	sed -i "s/agent=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/agent=$AGENT/g" /spgwd/scripts/spg_webstats.py
+	## update prtg script ##
+	sed -i "s/SPGMYDB=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/SPGMYDB=$DBNAME/g" /spgwd/scripts/spg_prtg.py
+	sed -i "s/SPGMYUSR=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/SPGMYUSR=$DBUSER/g" /spgwd/scripts/spg_prtg.py
+	sed -i "s/SPGMYKEY=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/SPGMYKEY=$DBPASS/g" /spgwd/scripts/spg_prtg.py
+	sed -i "s/SPGMYHOST=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/SPGMYHOST=$DBHOST/g" /spgwd/scripts/spg_prtg.py
+	sed -i "s/apiuser=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/apiuser=$PRTGUSER/g" /spgwd/scripts/spg_prtg.py
+	sed -i "s/apitoken=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/apitoken=$PRTGPASS/g" /spgwd/scripts/spg_prtg.py
+	sed -i "s/baseurl=\"\"\"[a-z,A-Z,0-9,.,_,-,@,!]*\"\"\"/baseurl=\"\"$PRTGURL\"\"/g" /spgwd/scripts/spg_prtg.py
 }
 
 remove() {

@@ -26,7 +26,7 @@ installdir() {
 }
 
 userinputs() {
-	read -p "Edit install config file with appropriate values. Press any key to continue [Ctrl+C to abort] " dummy
+	read -p "*** Edit install config file with appropriate values. Press any key to continue [Ctrl+C to abort] " dummy
 	vi ./install.conf
 }
 
@@ -67,7 +67,7 @@ remove() {
 
 cronentry() {
 	echo "*/5 * * * * /bin/python /spgwd/scripts/spg_webstats.py url1 url2"
-	read -p "Copy/Paste the above line into crontab. Edit url1 url2 to appropriate values. Press any key to continue [Ctrl+C to abort] " dummy
+	read -p "*** Copy/Paste the above line into crontab. Edit url1 url2 to appropriate values. Press any key to continue [Ctrl+C to abort] " dummy
 	crontab -l
 }
 

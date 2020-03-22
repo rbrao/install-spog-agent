@@ -28,11 +28,9 @@
 * Update MySQL DB connection variables in spg_webstats.py and spg_prtg.py
 	SPGMY*, agent, baseurl, apiuser and apitoken
 * Test script
-	python /spgwd/scripts/spg_webstats.py www.google.com
+	python /spgwd/scripts/spg_webstats.py 
 * On success of test, add cron entry
 	*/5 * * * * /bin/python /spgwd/scripts/spg_webstats.py url1 url2 url3 ...
 
 ### Future changelist
-
-## Windows
-
+* Full app installer

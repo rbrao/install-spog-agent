@@ -36,7 +36,7 @@ readinputs() {
 	DBPASS=`grep '^DBPASS=' ./install.conf|awk -F= '{print $2}'`
 	DBHOST=`grep '^DBHOST=' ./install.conf|awk -F= '{print $2}'`
 	AGENT=`grep '^AGENT=' ./install.conf|awk -F= '{print $2}'`
-	PRTGURL=`grep '^PRTGURL=' ./install.conf|awk -F= '{print $2}'`
+	PRTGURL=`grep '^PRTGURL=' ./install.conf|awk -F= '{print $2}'|sed 's#/#\\\/#g'`
 	PRTGUSER=`grep '^PRTGUSER=' ./install.conf|awk -F= '{print $2}'`
 	PRTGPASS=`grep '^PRTGPASS=' ./install.conf|awk -F= '{print $2}'`
 	echo "$DBNAME | $DBUSER | $DBPASS | $DBHOST | $AGENT | $PRTGURL | $PRTGUSER | $PRTGPASS"
@@ -58,7 +58,7 @@ unpack() {
 	sed -i "s/SPGMYHOST=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/SPGMYHOST=$DBHOST/g" /spgwd/scripts/spg_prtg.py
 	sed -i "s/apiuser=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/apiuser=$PRTGUSER/g" /spgwd/scripts/spg_prtg.py
 	sed -i "s/apitoken=\"[a-z,A-Z,0-9,.,_,-,@,!]*\"/apitoken=$PRTGPASS/g" /spgwd/scripts/spg_prtg.py
-	sed -i "s/baseurl=\"\"\"[a-z,A-Z,0-9,.,_,-,@,!]*\"\"\"/baseurl=\"\"$PRTGURL\"\"/g" /spgwd/scripts/spg_prtg.py
+	sed -i.bak "s/baseurl=\"\"\"[a-z,A-Z,0-9,.,_,-,@,!,:,/]*\"\"\"/baseurl=\"\"$PRTGURL\"\"/g" /spgwd/scripts/spg_prtg.py
 }
 
 remove() {

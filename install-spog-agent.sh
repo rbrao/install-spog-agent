@@ -77,6 +77,7 @@ test() {
 	readinputs
 	rpm -qa |egrep 'libcurl|openssl|mariadb|python2|python-devel'
 	pip list|egrep 'pycurl|MySQL-python'
+	/bin/python /spgwd/scripts/spg_webstats.py
 }
 
 install() {
